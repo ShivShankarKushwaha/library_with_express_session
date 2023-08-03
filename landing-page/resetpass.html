@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Ubuntu:ital,wght@1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="shortcut icon" href="https://wallpapercave.com/wp/wp9257237.jpg" type="image/x-icon"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/images/logo-iiitu.jpg" type="image/x-icon">
+    <title>Library Management</title>
+
+
+</head>
+
+<body>
+    <form action="/changepass" method="post" id="changepass" >
+        <center>
+            <h2>Reset Your Password</h2>
+        </center>
+
+        <input type="text" value="" placeholder="Enter Your New password" required name="pass1" id="pass1"
+            onclick="resetbtn()"> <br>
+        <input type="password" name="pass2" id="pass2" placeholder="Re-Enter Your password" required
+            onclick="resetbtn()" value=""><br>
+        <button type="submit" onclick="checkpassword()" id="submit">Reset Password</button>
+    </form>
+</body>
+<script>
+    function checkpassword() {
+        let pass1 = document.getElementById("pass1").value;
+        let pass2 = document.getElementById("pass2").value;
+        if (pass1 != pass2) {
+            alert(`Your password didn't match Please Try again`);
+            document.getElementById("submit").disabled = true;
+
+        }
+        else if ( (pass1>0)&&(pass1.length < 5 || pass2.length < 5)) {
+            alert(`Password cannot be smaller than 5 digit`);
+            document.getElementById("submit").disabled = true;
+            resetbtn();
+            document.getElementById("submit").disabled = false;
+        }
+
+    }
+    function resetbtn() {
+        document.getElementById("submit").disabled = false;
+    }
+</script>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Ubuntu:ital,wght@1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="shortcut icon" href="https://wallpapercave.com/wp/wp9257237.jpg" type="image/x-icon"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/images/logo-iiitu.jpg" type="image/x-icon">
+    <title>Library Management</title>
+    <link rel="stylesheet" href="output.css">
+    <style>
+        /* .addbookcontainer
+        {
+            padding-top: 5rem;
+            width: 100%;
+            height: 100rem;
+            color: black;
+            font-size: 5rem;
+            place-self: center;
+            display: grid;
+            place-self: center;
+            place-content: center;
+            text-align: center;
+            border-radius: 4rem;
+            text-align: center;
+        }
+        form{
+            display: grid;
+            place-content: center;
+            width: 100rem;
+            border: .2rem solid black;
+            padding: .5rem 1rem;
+            background-color: white;
+            border-radius: 5rem;
+            height: 100rem;
+        }
+        form input{
+            width: 97%;
+            background-color: white;
+            outline:invert;
+            height: 5rem;
+            padding:.5rem;
+            color: black;
+            font-size: 4rem;
+            text-align: center;
+        } */
+        #referencecheck{
+            display: flex;
+            flex-direction: row;
+            margin-top: 1rem;
+        }
+        #referencecheck input{
+            width: 10rem;
+            margin: 1rem;
+            margin-left: 1rem;
+            padding: 1rem;
+        }
+        /* #message{
+            height: 8rem;
+            display: none;
+        }
+        #availability{
+            margin: 2rem .5rem;
+            cursor: pointer;
+            background-color: blue;
+            color: white;
+        }
+        #add{
+            margin: 2rem 0.5rem;
+            cursor: pointer;
+            background-color: green;
+            color: white;
+            height: 7rem;
+        }
+        #reset{
+            margin: 2rem 0.5rem;
+            cursor: pointer;
+            background-color: red;
+            height: 7rem;
+        } */
+    </style>
+
+
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img class="w-20 h-20 flex place-self-center" src="/images/logo.jpg" alt="">
+            <p> <span>IIITU</span> Library</p>
+        </div>
+        <!-- sign in with college id -->
+        <ul>
+            <li id="btn_addbook"><a href="/addbooks">Add Books</a></li>
+            <li id="btn_addbook"><a href="/removebooks">Remove Books</a></li>
+            <li id="btn_addbook"><a href="/seeaccount">See an account</a></li>
+            <li id="btn_return"><a href="/returnBook">Return Book</a></li>
+            <li id="btn_home"> <a href="/logout">Log Out</a> </li>
+        </ul>
+    </nav>
+
+    <div class="space"></div>
+    <div class="addbookcontainer my-20">
+        <form action="/addbook" method="post" class="w-1/2 mx-auto flex flex-col justify-center items-center text-black">
+
+            <h2 class="text-5xl text-blue-600 text-center">Add New Books Here</h2><br>
+            <input class="text-2xl p-4 w-1/2 mx-auto bg-white outline-none border-2" type="text" name="name" required placeholder="Enter Book name"><br>
+            <!-- <span>use Camel case convension only</span> -->
+            <input  class="text-2xl p-4 w-1/2 mx-auto bg-white outline-none border-2"  type="number" name="status" required placeholder="Enter number of books" ><br>
+            <div id="referencecheck" class="flex justify-center items-center text-3xl">
+    
+                <label for="reference" style="margin-right: 1rem; " class="text-3xl">Reference:</label>
+                YES<input type="radio" name="reference"  value="YES" >
+                NO<input type="radio" name="reference"  value="NO" checked>
+            </div>
+            <!-- <span id="message">This book is Already Available</span> -->
+            <!-- <input type="button" value="Already Available?" id="availability" onclick="available()"> -->
+            <input class="bg-blue-600 text-white text-4xl p-4 w-1/2 m-5 cursor-pointer" type="submit" value="Add" id="add">
+            <input class="bg-slate-600 text-white text-4xl p-4 w-1/2 m-5 cursor-pointer" type="reset" value="Reset" id="reset" >
+        </form>
+    </div>
+</body>
+</html>

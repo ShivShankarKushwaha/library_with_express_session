@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Ubuntu:ital,wght@1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="shortcut icon" href="https://wallpapercave.com/wp/wp9257237.jpg" type="image/x-icon"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/images/logo-iiitu.jpg" type="image/x-icon">
+    <title>Library Management</title>
+    <link rel="stylesheet" href="output.css">
+
+
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <img class="w-20 h-20 flex place-self-center" src="/images/logo.jpg" alt="">
+            <p> <span>IIITU</span> Library</p>
+        </div>
+        <!-- sign in with college id -->
+        <ul>
+            <li id="btn_addbook"><a href="/addbooks">Add Books</a></li>
+            <li id="btn_addbook"><a href="/removebooks">Remove Books</a></li>
+            <li id="btn_addbook"><a href="/seeaccount">See an account</a></li>
+            <li id="btn_return"><a href="/returnBook">Return Book</a></li>
+            <li id="btn_home"> <a href="/logout">Log Out</a> </li>
+        </ul>
+    </nav>
+
+    <div class="space"></div>
+    <div class="returnbookcontainer flex flex-col justify-center items-center">
+        <h1>Welcome To Return the book</h1>
+        <form action="/returning" method="post" class="flex flex-col justify-center items-center">
+            <input type="text" name="email" placeholder="Enter email of student" onclick="display()" required>
+            <span style="color: red; font-size:2.5rem; display:none;" id="message" >*Book name is case sensitive</span>
+            <input type="text" name="name" placeholder="Enter same Book name want to return" onclick="text()" required>
+            <br>
+            <input type="submit" value="Return It" id="returnSubmit"><br>
+            <input type="reset" value="Clear"onclick="display()" id="returnclear">
+            <h2 >Collect fine here</h2>
+            <img class="mx-auto" src="/images/paytm.png" alt="Error" id="payqr"><br>
+        </form>
+        <div class="flex justify-around border-0 w-full">
+            <i class="fa-brands fa-3x fa-amazon-pay float-left" onclick="amazon('/images/amazon.png')" ></i>
+            <i class="fa-brands fa-3x fa-google-pay float-right" onclick="google('/images/google.png')" style="height:7rem ;"></i>
+            <img src="/images/Paytm_logo.png" alt="Error" style="width:7rem ; height:7rem;cursor: pointer; margin: 0rem;" onclick="paytm('/images/paytm.png')">
+        </div>
+    </div>
+</body>
+<script>
+function text()
+{
+    let message = document.getElementById("message");
+    message.style.display="block";
+}
+function display()
+{
+    let message = document.getElementById("message");
+    message.style.display="none";
+}
+function amazon(This)
+{
+    let qr = document.getElementById("payqr").src=This;
+    // qr.src.replace("/images/qr.png", "/images/first.jpg");;
+}
+function google(This)
+{
+    let qr = document.getElementById("payqr").src=This;
+    // qr.src.replace("/images/qr.png", "/images/first.jpg");;
+}
+function paytm(This)
+{
+    let qr = document.getElementById("payqr").src=This;
+
+}
+</script>
+</html>

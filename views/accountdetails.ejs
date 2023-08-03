@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Ubuntu:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="shortcut icon" href="https://wallpapercave.com/wp/wp9257237.jpg" type="image/x-icon"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/images/logo-iiitu.jpg" type="image/x-icon">
+    <title>Library Management</title>
+    <link rel="stylesheet" href="output.css">
+    <style>
+        h1{
+            font-size: 4rem;
+        }
+    </style>
+ 
+   
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img class="w-20 h-20 flex place-self-center" src="/images/logo.jpg" alt="">
+            <p> <span>IIITU</span> Library</p>
+        </div>
+        <!-- sign in with college id -->
+        <ul>
+            <li id="btn_addbook"><a href="/addbooks">Add Books</a></li>
+            <li id="btn_addbook"><a href="/removebooks">Remove Books</a></li>
+            <li id="btn_addbook"><a href="/seeaccount">See an account</a></li>
+            <li id="btn_return"><a href="/returnBook">Return Book</a></li>
+            <li id="btn_home"> <a href="/logout">Log Out</a> </li>
+        </ul>
+    </nav>
+
+    <div class="space"></div>
+    
+    <div class="booktable">
+        
+        
+        <table class="text-black">
+            <tr>
+                <th id="namecolumn">Name</th>
+                <th id="booknamecolumn">Books(issued)</th>
+                <!-- <th>Books(You took)</th> -->
+                <th id="returnedcolumn">Book issue time</th>
+                <!-- <th>Books(Not returned)</th> -->
+                <th id="finecolumn"><a href="/fine" target="_blank">Fine</a>(in ₹)</th>
+                <!-- <th><a href="/fine" target="_blank">Fine</a> Submitted?</th> -->
+            </tr>
+            <tr>
+                <td class="usercolumn"><%=logindata[0].name%></td>
+                <td id="issueed1"><%=logindata[0].book1%></td>
+                <td id="returned1"><%=logindata[0].returned1%></td>
+                <td id="fine1"><%=logindata[0].fine1%></td>
+                <!-- <td id="submitted1"><%=logindata[0].finesubmit1%></td> -->
+                
+             </tr>
+            <tr>
+                <td class="usercolumn"><%=logindata[0].name%></td>
+                <td id="issueed2"><%=logindata[0].book2%></td>
+                <td id="returned2"><%=logindata[0].returned2%></td>
+                <td id="fine2"><%=logindata[0].fine2%></td>
+                <!-- <td id="submitted2"><%=logindata[0].finesubmit2%></td> -->
+                
+             </tr>
+            <tr>
+                <td class="usercolumn"><%=logindata[0].name%></td>
+                <td id="issueed3"><%=logindata[0].book3%></td>
+                <td id="returned3"><%=logindata[0].returned3%></td>
+                <td id="fine3"><%=logindata[0].fine3%></td>
+                <!-- <td id="submitted3"><%=logindata[0].finesubmit3%></td> -->
+                
+             </tr>
+            <tr>
+                <td class="usercolumn"><%=logindata[0].name%></td>
+                <td id="issueed4"><%=logindata[0].book4%></td>
+                <td id="returned4"><%=logindata[0].returned4%></td>
+                <td id="fine4"><%=logindata[0].fine4%></td>
+                <!-- <td id="submitted4"><%=logindata[0].finesubmit4%></td> -->
+               
+            </tr>
+            <tr>
+                <td class="usercolumn"><%=logindata[0].name%></td>
+                <td id="issueed5"><%=logindata[0].book5%></td>
+                <td id="returned5"><%=logindata[0].returned5%></td>
+                <td id="fine5"><%=logindata[0].fine5%></td>
+                <!-- <td id="submitted5"><%=logindata[0].finesubmit5%></td> -->
+               
+            </tr>
+            <tr>
+                <td class="usercolumn"><%=logindata[0].name%></td>
+                <td id="issueed6"><%=logindata[0].book6%></td>
+                <td id="returned6"><%=logindata[0].returned6%></td>
+                <td id="fine6"><%=logindata[0].fine6%></td>
+                <!-- <td id="submitted6"><%=logindata[0].finesubmit6%></td> -->
+               
+            </tr>
+            <tr>
+                <td class="usercolumn"><%=logindata[0].name%></td>
+                <td id="issueed7"><%=logindata[0].book7%></td>
+                <td id="returned7"><%=logindata[0].returned7%></td>
+                <td id="fine7"><%=logindata[0].fine7%></td>
+                <!-- <td id="submitted7"><%=logindata[0].finesubmit7%></td> -->
+               
+            </tr>
+            <tr>
+                <td class="usercolumn"><%=logindata[0].name%></td>
+                <td id="issueed8"><%=logindata[0].book8%></td>
+                <td id="returned8"><%=logindata[0].returned8%></td>
+                <td id="fine8"><%=logindata[0].fine8%></td>
+                <!-- <td id="submitted8"><%=logindata[0].finesubmit8%></td> -->
+               
+            </tr>
+            <tr>
+                <td class="usercolumn"><%=logindata[0].name%></td>
+                <td id="issueed9"><%=logindata[0].book9%></td>
+                <td id="returned9"><%=logindata[0].returned9%></td>
+                <td id="fine9"><%=logindata[0].fine9%></td>
+                <!-- <td id="submitted9"><%=logindata[0].finesubmit9%></td> -->
+               
+            </tr>
+            <tr>
+                <td class="usercolumn"><%=logindata[0].name%></td>
+                <td id="issueed10"><%=logindata[0].book10%></td>
+                <td id="returned10"><%=logindata[0].returned10%></td>
+                <td id="fine10"><%=logindata[0].fine10%></td>
+                <!-- <td id="submitted10"><%=logindata[0].finesubmit10%></td> -->
+               
+            </tr>
+            
+         </table>
+    </div>
+</body>
+</html>

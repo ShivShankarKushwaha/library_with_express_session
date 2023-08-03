@@ -1,0 +1,909 @@
+*{
+    margin: 0rem;
+    padding: 0rem;
+    /* background-color: rgb(255, 255, 255); */
+}
+
+
+body{
+    
+    /* background-color: #454545; */
+    color: whitesmoke;
+    
+}
+/* @media(min-width:1900px)
+{
+    html{
+        font-size: 2rem;
+    }
+} */
+nav{
+    font-family:'montserrat';
+    display: flex;
+    padding: 0.2rem 2rem;
+    border: 2px solid rgb(73, 154, 246);
+    background-color: #fdd2df;
+    background-color: rgb(73, 154, 246);
+    color: whitesmoke;
+    box-shadow: 0px 10px 10px rgb(0 0 0);
+    position: fixed;
+    width: 100%;
+}
+nav div{
+    margin: auto;
+    margin-left: 0rem;
+    display: flex;
+}
+nav div img{
+    width:  10rem;
+    height: 10rem;
+    border-radius: 10rem;
+}
+nav div p{
+    margin: auto;
+    margin-left: 10rem;
+    font-size: 5rem;
+}
+nav div p span{
+    color: #ff911c;
+}
+nav ul{
+    display: flex;
+    margin: auto;
+}
+nav ul li{
+    text-decoration: none;
+    list-style-type: none;
+    margin: auto;
+    margin-left: 6rem;
+    font-size: 2rem;
+    /* border: .1rem solid goldenrod; */
+    padding: 1rem;
+    opacity: 1;
+    cursor: pointer;
+}
+nav ul li:checked{
+    border: .1rem solid red;
+    cursor: pointer;
+}
+nav ul li a:hover{
+    padding: 1rem;
+    opacity: 1;
+    border-left: 0.5rem solid yellow;
+    border-bottom: 0.5rem solid yellow;
+    background-color: aqua;
+    cursor: pointer;
+    /* color: darkmagenta; */
+    color: crimson;
+    border-radius: 1rem;
+    /* background-color: yellow; */
+}
+nav ul li a{
+    text-decoration: none;
+    color: white;
+
+    /* background-color: aqua;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: crimson; */
+}
+
+.errorpage{
+    width: 200rem;
+    margin-top: 5rem;
+    box-sizing: border-box;
+    justify-items: center;
+    /* border-radius: 5rem; */
+}
+.errorpage img{
+    border-radius: 10rem;
+    width: 200rem;
+    height: 100rem;
+}
+
+.space{
+    height: 9rem;
+}
+.booktable{
+    border: .5rem solid black;
+    height: 90rem;
+    width: 97%;
+    font-size: 3rem;
+    color: #Ffff;
+   padding: 0rem 3rem;
+   align-content: center;
+   text-align: center;
+
+}
+.booktable table tr th{
+    /* margin: .2rem 300rem; */
+    padding: 0rem 5rem;
+    columns: 15rem 5;
+    border: .3rem solid black;
+    /* border-left: .5rem; */
+    color: dodgerblue;
+    text-align: center;
+    
+    
+    
+}
+.booktable table tr{
+    height: 6.5rem;
+}
+.booktable table tr td{
+    border: .3rem solid black;
+    /* border-left: 0rem; */
+    border-top: 0rem;
+    margin: 0.1rem 5rem;
+    padding: 0.2rem auto;
+    text-align: center;
+    
+}
+.booktable table tr th a{
+    color: red;
+    cursor: pointer;
+}
+#finecolumn{
+    width: 20rem;
+}
+#returnedcolumn{
+    width: 20rem;
+    
+}
+#namecolumn{
+    width: 50rem;
+}
+#booknamecolumn{
+    width: 140rem;
+    padding:0rem 20%;
+}
+.search{
+    border: .2rem solid burlywood;
+    background-color: #232323;
+    width: 99.7%;
+    height: 80rem;
+    font-size: 3rem;
+    text-align: center;
+    background-image: url("/images/galaxy.gif");
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    background-position: center;
+    /* background-attachment: fixed; */
+    /* display: none; */
+    /* margin: 1rem 20rem; */
+}
+#name{
+    height: 7rem;
+    width: 40%;
+    font-size: 3rem;
+    padding: 0rem .8rem;
+    margin: 1.5rem auto;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+}
+#name:active{
+    border: 0rem;
+    margin: 0rem;
+    transition: 0.2s ease;
+}
+#name:focus{
+    border-width: 0rem;
+}
+
+#textarea{
+    display: none;
+}
+#text{
+    width: 138rem;
+    height: 35rem;
+    background-color: black;
+    font-size: 2rem;
+    margin: 1rem auto;
+    padding: 1rem ;
+    color: white;
+}
+form div{
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    color: green;
+}
+#search-icon{
+    width: 5.2rem;
+    height: 5.44rem;
+    /* margin-top: 2rem; */
+    margin: -2.1rem -6.2rem;
+    text-decoration: none;
+    /* border: .3rem solid black; */
+    /* border-top: .2rem solid black; */
+    cursor: pointer;
+    /* padding-top: 2rem; */
+}
+/* #search-icon:hover{
+    border: .5rem solid red;
+    border-top: .1rem;
+    border-right: .1rem;
+} */
+#searchsubmit{
+    height: 5rem;
+    width: 20rem;
+    background-color: rgb(187, 194, 242);
+    color: black;
+    border-radius: 3rem;
+    cursor: pointer;
+    margin: 2rem auto;
+    font-size: 3.5rem;
+}
+#searchsubmit:hover{
+    border: .1rem solid yellow;
+    border-left: .5rem;
+    border-top: .5rem;
+}
+.meaning{
+    border: .5rem solid black;
+    height: 80rem;
+    width: 100rem;
+    /* margin-top: 10rem; */
+    padding: 10rem auto;
+    margin: 2rem auto;
+    font-size: 5rem;
+    color: cornflowerblue;
+    padding: 5rem 5rem;
+    background-color: white;
+    border-radius: 10rem;
+}
+.meaning h2{
+    margin: 1rem auto;
+    text-align: center;
+    color: red;
+}
+#submitallocation{
+    width: 30rem;
+    height: 10rem;
+    background-color: green;
+    border: 0.1 solid red;
+    font-size: 7rem;
+    border-radius: 2rem;
+    margin-top: 10rem;
+    
+}
+
+#submitallocation:hover{
+    cursor: pointer;
+    border-left: 1rem solid red;
+    border-bottom: 1rem solid red;
+    border-radius: 20rem;
+    font-size: 5rem;
+
+}
+#submitallocation:disabled{
+    cursor:not-allowed;
+    border: 0rem solid black;
+    border-radius: 2rem;
+    font-size: 7rem;
+    /* cursor: none; */
+    background-color: gray;
+}
+#referencemessage{
+    margin: 10rem auto;
+}
+.welcome{
+    /* border: .1rem solid #212121; */
+    height: 10rem;
+    width: 100%;
+    /* margin: 0rem 2rem; */
+    font-size: 3rem;
+    text-align: center;
+    background: rgba(0,0,0,0.1);
+    color: aqua;
+    padding-top: 5rem;
+}
+
+
+.intro{
+    margin: 1rem auto;
+    padding-top: 3rem;
+    height: 50rem;
+    font-size: 3rem;
+}
+.intro p{
+    margin: 1rem 2%;
+    color: white;
+    align-items: center;
+    text-align: justify;
+}
+
+.intro h4{
+    padding-top: 2rem;
+    margin: 1rem 2%;
+    color: silver;
+}
+#quoter{
+    color: greenyellow;
+    margin-left: 90%;
+    display: none;
+}
+.about{
+    /* margin: 2rem 0rem; */
+    padding-top: 5rem;
+    background-color: rgb(227, 210, 210);
+    /* background-image: url("/images/download.png" ); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* background-image: image-set(100rem,100rem); */
+    height: 35rem;
+}
+.about center h3{
+    color: blue;
+    font-size: 5rem;
+    /* background-color: white; */
+}
+.about p{
+    padding-top: 5rem;
+    /* height: 50rem; */
+    font-size: 3.0rem;
+    text-align: justify;
+    background-color: none;
+    color: black;
+    padding: 2rem;
+    font-weight: bolder;
+}
+.sign{
+    border: .2rem solid black;
+    font-size: 3rem;
+    width: 99.7%;
+    height: 85rem;
+    /* display: none; */
+    border-radius: 2rem;
+    text-align: center;
+    align-items: center;
+}
+.sign form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70rem;
+    color: cyan;
+    color: red;
+    /* border: 2rem solid firebrick; */
+    margin: .1rem auto;
+    height: 80rem;
+    background-color: whitesmoke;
+    /* background-color: #8b8989; */
+    padding-top: 3rem;
+    border-radius: 3rem;
+    text-align: center;
+    align-content: center;
+
+}
+
+#submit1:disabled{
+    cursor:not-allowed;
+    opacity: 60%;
+    border: none;
+}
+
+
+input{
+    background-color: #356;
+    outline: none;
+    border-radius: 2rem;
+    color: white;
+    font-size: 2rem;
+}
+placeholder{
+    color: red;
+}
+
+/* .sign form div input{
+    margin-left: auto;
+} */
+.container{
+    /* background-image:url("download.png"); */
+    /* background: linear-gradient(rgba(95, 46, 195, 0.9),rgba(1,1,1,1)),url("new1.gif"); */
+    width: 100%;
+    height: 260rem;
+  
+}
+.trending{
+    border: .1rem solid black;
+    border-bottom: .3rem solid black;
+    border-left: 0.2rem solid black;
+    border-right: 0.2rem solid black;
+    height: 260rem;
+    /* -webkit-backdrop-filter: blur(10rem); */
+}
+
+.trending p{
+    font-size: 5rem;
+    text-align: center;
+    font-family: "moteresat";
+    color: yellow;
+    display: flex;
+    flex-direction: column;
+}
+.trending div{
+    /* border: 0.2rem solid blueviolet; */
+    height: 60rem;
+    display: flex;
+    padding: 1rem;
+    width: 100%;
+    /* background-color: aqua; */
+}
+.trending div div {
+    border: .7rem solid blueviolet;
+    /* border-left: .5rem solid blueviolet;
+    border-bottom: .5rem solid blueviolet; */
+    box-sizing:border-box;
+    /* margin: auto; */
+    margin:auto;
+    padding: 1rem;
+    width: 45rem;
+    height: 55rem;
+    background-color: #232323;
+    border-radius: 1rem;
+}
+.trending div div  img:hover{
+    /* border-left: .5rem solid blueviolet;
+    border-bottom: .5rem solid blueviolet; */
+    cursor: pointer;
+    transition: .5s ease;
+
+}
+.trending div div  img{
+    width: 41.4rem;
+    height: 51rem;
+    align-items: center;
+}
+.trending div div  img:active{
+    /* box-sizing: border-box; */
+    /* width: 110%; */
+    height: 110%;
+}
+
+#black{
+    border: .2rem solid black;
+    height: 18rem;
+    background-color: black;
+}
+/* .trending div div:focus{
+    height: 150%;
+} */
+
+.forgetform{
+    background-color: white;
+    width: 100rem;
+    height: 70rem;
+    margin: 10rem auto;
+    border-radius: 5rem;
+}
+.forgetform form h1{
+    font-size: 8rem;
+    text-align: center;
+    color: black;
+    padding: 2rem;
+}
+.forgetform form div{
+    margin-top: 5rem;
+    font-size: 2rem;
+
+}
+.forgetform form div label{
+    margin-bottom: 2rem;
+    font-size: 3rem;
+}
+.forgetform form div input{
+    background-color: white;
+    outline: none;
+    height: 5rem;
+    font-size: 2.5rem;
+    margin: 0rem 10rem;
+    color: black;
+    padding-left: 1.5rem;
+}
+.forgetform form div button{
+    height: 6rem;
+    margin: 1rem 10rem;
+    background-color: blue;
+    color: white;
+    border-radius: 3rem;
+    font-size: 3rem;
+    cursor: pointer;
+
+}
+.forgetform form div a{
+    margin-top: 5rem;
+    font-size: 2.5rem;
+    text-decoration: none;
+    color: red;
+}
+#forgetmessage{
+    color: red;
+    font-size: 2rem;
+    margin: 1rem auto;
+}
+#changepass{
+    /* padding:30rem; */
+    height: 35rem;
+    background-color: white;
+    margin: 20rem;
+    border-radius: 5rem;
+    padding: 2rem 10rem;
+    width: 80rem;
+    margin-left: 55rem;
+    color: green;
+    font-size: 4rem;
+    /* font-size: 9rem; */
+
+}
+#changepass button{
+    font-size: 3rem;
+    margin-left: 24rem;
+    height: 8rem;
+    width: 20rem;
+    background-color: skyblue;
+    cursor: pointer;
+    border-radius: 3rem;
+    border: .1rem solid yellow;
+
+}
+#changepass button:hover{
+   border: .1rem solid yellow;
+   border-left: .5rem solid yellow;
+   border-bottom: .5frem solid yellow;
+}
+#changepass input{
+    width: 70%;
+    height: 5rem;
+    /* margin: 3rem; */
+    color: black;
+    background-color: white;
+    margin:1.5rem 9rem;
+    padding-left: 2rem;
+    font-size: 3rem;
+}
+
+#submitotp:disabled{
+    cursor: not-allowed;
+    opacity: .5;
+
+}
+#otpbtn{
+    background-color: green;
+    cursor: pointer;
+    height: 6rem;
+    
+}
+#otpform{
+    padding-top: 5rem;
+    height: 35rem;
+}
+#otpform form div input{
+    margin-bottom: 3rem;
+}
+.returnbookcontainer{
+    background-color: white;
+    color: chartreuse;
+    height: 150rem;
+    width: 90rem;
+    /* display: grid; */
+    /* place-content:center; */
+    /* place-items: center; */
+    margin: 0rem auto;
+    font-size: 3rem;
+    border-radius: 2rem;
+    text-align: center;
+}
+.returnbookcontainer form{
+    padding-top: 1.5rem;
+    margin-top: 5rem;
+    /* height: 100rem; */
+    /* text-align: center; */
+}
+.returnbookcontainer form input{
+    background-color: aliceblue;
+    outline: none;
+    color: black;
+    font-size: 3rem;
+    padding: 0.5rem;
+    height: 4rem;
+    width: 90%;
+    margin-top: 4rem;
+    margin: 1.5rem 5%;
+    text-align: center;
+}
+.returnbookcontainer form  img{
+    align-items: center;
+    /* position: absolute; */
+    margin-top: 5rem;
+    margin: 5rem 10%;
+    height: 50rem;
+    width: 50rem;
+    /* margin: 5rem auto; */
+}
+.returnbookcontainer form h2{
+    color: red;
+    margin: 5rem 10%;
+    text-align: center;
+    align-items: center;
+}
+#returnSubmit{
+    cursor: pointer;
+    height: 5rem;
+    background-color: blue;
+    color: yellow;
+}
+#returnSubmit:hover{
+    background-color: rgb(34, 34, 165);
+    color: red;
+}
+#returnclear{
+    height: 5rem;
+    font-size: 3rem;
+    padding: 0.5rem;
+    background-color: red;
+}
+#returnclear:hover{
+    cursor: pointer;
+    background-color: rgb(191, 36, 36);
+}
+footer{
+    display: flex;
+    padding: auto;
+    /* border: .2rem solid rgb(198, 198, 213); */
+    height: 10rem;
+    /* background-color: whitesmoke; */
+}
+footer h5{
+    margin: auto;
+    font-size: 2rem;
+    font-weight: lighter;
+    /* color: rgb(108, 103, 103); */
+}
+.social{
+    margin: auto;
+    /* color: rgb(108, 103, 103); */
+    /* opacity: 10%; */
+}
+footer h2{
+    font-weight: lighter;
+    color: rgb(108, 103, 103);
+    font-weight: lighter;
+    font-size: 3rem;
+    margin: auto;
+}
+.fa-brands, .fab {
+    cursor: pointer;
+    font-weight: 400;
+    width: 4rem;
+    height: 3rem;
+    size: 2vh;
+    text-decoration: none;
+    /* background-color: aqua; */
+    border-radius: 3rem;
+    width: 22%;
+}
+.fa-brands,.fab:hover{
+    opacity: 1;
+    color: aquamarine;
+    color: rgb(97, 103, 153);
+    text-decoration: none;
+    background: transparent;
+    /* background-color: green; */
+}
+.fa-solid:hover{
+    opacity: 1;
+    color: aquamarine;
+    color: rgb(97, 103, 165);
+    text-decoration: none;
+    background: transparent;
+}
+
+@media((min-width:1450px) and (max-width:2800px))
+{
+    html{
+        font-size: 9.6px;
+    }
+}
+@media((min-width:1050px) and (max-width:1450px))
+{
+    html{
+        font-size: 6.4px;
+    }
+}
+@media((min-width:780px) and (max-width:1050px))
+{
+    html{
+        font-size: 4.8px;
+    }
+}
+@media((min-width:550px) and (max-width:780px))
+{
+    html{
+        font-size: 4px;
+    }
+    nav{
+        display: flex;
+        flex-direction: column;
+    }
+    .space{
+        /* margin-top: 10rem; */
+        padding-top: 6rem;
+    }
+    
+}
+@media((min-width:450px) and (max-width:550px))
+{
+    div.welcome{
+        height: 12rem;
+        padding-top: 10rem;
+    }
+    html{
+        font-size: 3px;
+    }
+    nav{
+        /* display: flex; */
+        /* height: 5rem; */
+        flex-direction: column;
+    }
+    .returnbookcontainer{
+        width: 200rem;
+        height: 200rem;
+    }
+    .returnbookcontainer form{
+        display: block;
+        width: 150rem;
+        display: block;
+        text-align: center;
+        place-content: center;
+        margin: auto;
+    }
+    .returnbookcontainer form input{
+        height: 10rem;
+        font-size: 7rem;
+    }
+    #returnclear{
+        height: 10rem;
+        font-size: 7rem;
+    }
+    #returnSubmit{
+        margin-top: 20rem;
+        height: 10rem;
+        font-size: 7rem;
+    }
+    
+    .social{
+        width: 17rem;
+    }    
+}
+@media((min-width:315px) and (max-width:450px)){
+    div.welcome{
+        height: 10rem;
+        padding-top: 5rem;
+        padding-bottom: 3rem;
+    }
+    html{
+        font-size: 2.5px;
+    }
+    .logo{
+        font-size: 10rem;
+    }
+    .logo p span{
+        font-size: 10rem;
+    }
+    .logo p{
+        font-size: 10rem;
+    }
+    .welcome{
+        width: 137rem;
+        width: 99%;
+    }
+    .welcome h2{
+        font-size: 6rem;
+    }
+    .welcome h5{
+        font-size: 4rem;
+    }
+    .intro h3{
+        display: none;
+    }
+    .search h2{
+        font-size: 8rem;
+    }
+    .search form{
+        /* width: 100rem; */
+        width: 100%;
+    }
+    .search form div section input{
+        /* width: 200rem; */
+        background-color: white;
+        width: 150rem;
+    }
+    #quoter{
+        display: none;
+    }
+    nav{
+        /* display: flex; */
+        /* height: 5rem; */
+        flex-direction: column;
+        width: 145rem;
+        /* font-size: 200%; */
+    }
+    nav ul{
+        color: red;
+        margin-left: 0rem;
+        /* width: 100rem; */
+        /* font-size: 5rem; */
+    }
+    nav ul li {
+        font-size: 4rem;
+    }
+    .space{
+        /* margin-top: 10rem; */
+        padding-top: 10rem ;
+        /* width: 100%; */
+        width: 137rem;
+    }
+    .intro{
+        height: 150rem;
+        padding-bottom: 10rem;
+        font-size: 6rem;
+    }
+    .intro h3{
+        width: 90%;
+        font-size: 5rem;
+    }
+    .about{
+        height: 130rem;
+    }
+    .about center h3{
+        font-size: 7rem;
+    }
+    .about p{
+        font-size: 6rem;
+    }
+    footer{
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+        width: 100%;
+        
+    }
+    .returnbookcontainer{
+        width: 145rem;
+        height: 200rem;
+    }
+    .returnbookcontainer form{
+        display: block;
+        width: 145rem;
+        display: block;
+        text-align: center;
+        place-content: center;
+        margin: auto;
+    }
+    .returnbookcontainer form input{
+        height: 10rem;
+        font-size: 7rem;
+    }
+    #returnclear{
+        height: 10rem;
+        font-size: 7rem;
+    }
+    #returnSubmit{
+        margin-top: 20rem;
+        height: 10rem;
+        font-size: 7rem;
+    }
+    footer h2,footer h5{
+        font-size: 4rem;
+    }
+    .social{
+        width: 20rem;
+        margin-left: 0rem;
+        padding-left: 0rem;
+    } 
+    
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Ubuntu:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="shortcut icon" href="https://wallpapercave.com/wp/wp9257237.jpg" type="image/x-icon"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/images/logo-iiitu.jpg" type="image/x-icon">
+    <title>Library Management</title>
+    <style>
+        h1{
+            margin-top: 5rem;
+            font-size: 5rem;
+        }
+        h2{
+            font-size: 4rem;
+        }
+    </style>
+ 
+   
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="/images/logo.jpg" alt="">
+            <p> <span>IIITU</span> Library</p>
+        </div>
+        <!-- sign in with college id -->
+        <ul>
+            <!-- <li id="btn_home" onclick="home()"> Home </li> -->
+            <!-- <li id="btn_books"><a href="/books">MY Books</a></li> -->
+            <!-- <li>About Us</li> -->
+            <!-- <li id="btn_search"><a href="/search">Search Books</a></li> -->
+            <!-- <li id="btn_sign"><a href="/sign">Sign Up</a></li> -->
+            <!-- <li id="btn_login"><a href="/login">Log In</a></li> -->
+            <li id="btn_addbook"><a href="/addbooks">Add Books</a></li>
+            <li id="btn_addbook"><a href="/removebooks">Remove Books</a></li>
+            <li id="btn_addbook"><a href="/seeaccount">See an account</a></li>
+            <li id="btn_return"><a href="/returnBook">Return Book</a></li>
+            <li id="btn_home"> <a href="/logout">Log Out</a> </li>
+            <!-- <li style="color:gold;">Logged in</li> -->
+        </ul>
+    </nav>
+
+    <div class="space"></div>
+    <center>
+        <h1>Account not found</h1><br>
+        <h2 onclick="previous()">
+            Go to previous page
+        </h2>
+    </center>
+</body>
+<script>
+    async function previous()
+    {
+        window.history.go(-1);
+    }
+</script>
+</html>

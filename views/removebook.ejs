@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Ubuntu:ital,wght@1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="shortcut icon" href="https://wallpapercave.com/wp/wp9257237.jpg" type="image/x-icon"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/images/logo-iiitu.jpg" type="image/x-icon">
+    <title>Library Management</title>
+    <link rel="stylesheet" href="output.css">
+
+
+
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img class="w-20 h-20 flex place-self-center" src="/images/logo.jpg" alt="">
+            <p> <span>IIITU</span> Library</p>
+        </div>
+        <!-- sign in with college id -->
+        <ul>
+            <li id="btn_addbook"><a href="/addbooks">Add Books</a></li>
+            <li id="btn_addbook"><a href="/removebooks">Remove Books</a></li>
+            <li id="btn_addbook"><a href="/seeaccount">See an account</a></li>
+            <li id="btn_return"><a href="/returnBook">Return Book</a></li>
+            <li id="btn_home"> <a href="/logout">Log Out</a> </li>
+        </ul>
+    </nav>
+
+    <!-- <div class="space"></div> -->
+    <div class="addbookcontainer h-screen flex flex-col justify-center items-center">
+        <form action="/removebook" method="post" class="w-1/2 flex flex-col justify-center items-center">
+
+            <h2 class="text-4xl text-blue-500 font-semibold text-center">Remove Books Here</h2><br>
+            <input class="bg-white outline-none border-2 w-1/2 mx-auto text-2xl p-4 text-black" type="text" name="id" required placeholder="Enter Book id"><br>
+            <input class="bg-blue-700 text-3xl p-4 w-1/2" type="submit" value="Remove It" id="add">
+            <input type="reset" value="Reset" id="reset">
+        </form>
+    </div>
+</body>
+<script>
+    let num =0;
+    if(num==0)
+    {
+        window.reload();
+        num++;
+    }
+</script>
+</html>
