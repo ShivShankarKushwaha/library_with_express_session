@@ -102,20 +102,23 @@ app.get("/", async(req, res) => {
         admin();
         check++;
     }
-    res.sendFile(__dirname + "/landing-page/home.html", { logindata });
+    res.sendFile(__dirname + "/landing-page/home.html");
 });
 app.get("/sign", (req, res) => {
-    res.sendFile(__dirname + "/landing-page/sign.html", { logindata });
+    res.sendFile(__dirname + "/landing-page/sign.html");
 });
 app.get("/login", (req, res) => {
-    res.sendFile(__dirname + "/landing-page/login.html", { logindata });
+    res.sendFile(__dirname + "/landing-page/login.html");
 });
 app.get("/search", (req, res) => {
-    res.sendFile(__dirname + "/landing-page/search.html", { logindata });
+    res.sendFile(__dirname + "/landing-page/search.html");
 });
 app.get("/books", (req, res) => {
     if (checklogin == 1)
+    {
+        let logindata = req.session.logindata;
         res.render(__dirname + "/views/books.ejs", { logindata });
+    }
     else {
         // res.send(`<center><h1>Please Login first to see your books history</h1><br><h1><a href="/login">Go to Log in page</a></h1></center>`)
         res.send(`<center style="background-color:grey; height:93rem;padding-top:20rem"><h1 style="font-size:5rem">Please Login first to see your books history</h1><br><h1><a href="/login" style="font-size:4rem">Go to Log in page</a></h1></center>`)
@@ -137,22 +140,22 @@ async function admin()
 // console.log(adminmail);
 
 
-var reqname, reqemail, reqroll, reqpassword;
+// var reqname, reqemail, reqroll, reqpassword;
 app.post("/sign", async (req, res) => {
-    reqname = req.body.name;
-    reqemail = req.body.email;
-    reqroll = req.body.roll;
-    reqpassword = req.body.password;
+    req.session.reqname = req.body.name;
+    req.session.reqemail = req.body.email;
+    req.session.reqroll = req.body.roll;
+    req.session.reqpassword = req.body.password;
     /////////////////////////////////////////
     let result = await client.connect();
     let db = result.db(database);
     let collection = db.collection('notes');
 
     let responce1 = await collection.find({ email: req.body.email }).toArray();
-    let collegemailcheck = reqemail.includes('iiitu.ac.in');
+    let collegemailcheck = req.session.reqemail.includes('iiitu.ac.in');
     console.log(collegemailcheck);
     ////////////////////////////////////////
-    if (responce1 == "" && collegemailcheck && reqemail!=adminmail) {
+    if (responce1 == "" && collegemailcheck && req.session.reqemail!=adminmail) {
 
 
         PinGenerator();
@@ -189,7 +192,7 @@ app.post("/sign", async (req, res) => {
         res.sendFile(__dirname + "/landing-page/signotp.html");
 
     }
-    else if (responce1 != "" || reqemail==adminmail) {
+    else if (responce1 != "" || req.session.reqemail==adminmail) {
         res.send(`<center  style="background-color:grey; height:93rem;padding-top:20rem;font-size:5rem;"> You have an account Please Login Instead of Sign In<hr><a href="/login">Go to Log in page</a><hr></center>`)
     }
     else {
@@ -203,7 +206,7 @@ app.post("/signotp", async (req, res) => {
     if (otpsubmit === pinReturn) {
         let newnote = new note({
 
-            name: reqname, email: reqemail, roll: reqroll, password: reqpassword, booknumbers: 0, book1: "", book2: "", book3: "", book4: "", book5: "", book6: "", book7: "", book8: "", book9: "", book10: "", returned1: "", returned2: "", returned3: "", returned4: "", returned5: "", returned6: "", returned7: "", returned8: "", returned9: "", returned10: "", fine1: 0, fine2: 0, fine3: 0, fine4: 0, fine5: 0, fine6: 0, fine7: 0, fine8: 0, fine9: 0, fine10: 0, finesubmit1: 0, finesubmit2: 0, finesubmit3: 0, finesubmit4: 0, finesubmit5: 0, finesubmit6: 0, finesubmit7: 0, finesubmit8: 0, finesubmit9: 0, finesubmit10: 0,
+            name: req.session.reqname, email: req.session.reqemail, roll: req.session.reqroll, password: req.session.reqpassword, booknumbers: 0, book1: "", book2: "", book3: "", book4: "", book5: "", book6: "", book7: "", book8: "", book9: "", book10: "", returned1: "", returned2: "", returned3: "", returned4: "", returned5: "", returned6: "", returned7: "", returned8: "", returned9: "", returned10: "", fine1: 0, fine2: 0, fine3: 0, fine4: 0, fine5: 0, fine6: 0, fine7: 0, fine8: 0, fine9: 0, fine10: 0, finesubmit1: 0, finesubmit2: 0, finesubmit3: 0, finesubmit4: 0, finesubmit5: 0, finesubmit6: 0, finesubmit7: 0, finesubmit8: 0, finesubmit9: 0, finesubmit10: 0,
 
 
         });
@@ -217,14 +220,14 @@ app.post("/signotp", async (req, res) => {
 
     }
 })
-let logindata, logmail, username, userpass, usermail;
+// let logindata, logmail, username, userpass, usermail;
 app.post("/login", async (req, res) => {
 
     let result = await client.connect();
     let db = await result.db(database);
     let collection = await db.collection('notes');
     let responce1 = await collection.find({ email: req.body.email }).toArray();
-    logmail = await req.body.email;
+    req.session.logmail = await req.body.email;
     // console.log(logindata[0].book1);
     let responce2 = await collection.find({ email: req.body.email, password: req.body.password }).toArray();
     console.log(responce1);
@@ -239,10 +242,10 @@ app.post("/login", async (req, res) => {
     }
 
     else {
-        logindata = await responce1;
-        username = await responce1[0].name;
-        usermail = await responce1[0].email;
-        userpass = await responce1[0].password;
+        req.session.logindata = await responce1;
+        req.session.username = await responce1[0].name;
+        req.session.usermail = await responce1[0].email;
+        req.session.userpass = await responce1[0].password;
         if (responce1[0].email === adminmail && responce1[0].password == adminpass) {
             checklogin = 1;
             admincheck=1;
@@ -278,12 +281,12 @@ const { name } = require("ejs");
 var pinReturn = "";
 
 function PinGenerator() {
-    pinReturn = otpGenerator.generate(5, { digits: true, upperCase: true, specialChars: false, alphabets: false });
-    console.log(pinReturn);
+    req.session.pinReturn = otpGenerator.generate(5, { digits: true, upperCase: true, specialChars: false, alphabets: false });
+    console.log(req.session.pinReturn);
 }
 
 PinGenerator.prototype.getPin = function () {
-    return pinReturn;
+    return req.session.pinReturn;
 };
 
 app.get("/forgetpass", async (req, res) => {
@@ -295,7 +298,7 @@ app.post("/forget", async (req, res) => {
     let result = await client.connect();
     let db = result.db(database);
     let collection = db.collection('notes');
-    forgetmail = await req.body.email;
+    req.session.forgetmail = await req.body.email;
     let responce1 = await collection.find({ email: req.body.email }).toArray();
     if (responce1 == "") {
         console.log("No data found");
@@ -303,7 +306,7 @@ app.post("/forget", async (req, res) => {
         res.send(`<center style="background-color:grey; height:93rem;padding-top:20rem;font-size:5rem;"> <h2> You have no account ! Please sign up </h2> <br>  <a href="/sign">Sign Up</a></center>`)
 
     }
-    else if(forgetmail==adminmail)
+    else if (req.session.forgetmail==adminmail)
     {
         res.send(`<center style="background-color:grey; height:93rem;padding-top:20rem;font-size:5rem;"><br><br><h1 style="font-size:4rem;"> You cannot update password here</h1><br><a href="/" style="font-size:3rem">Go to homepage</a></center>`);
     }
@@ -327,9 +330,9 @@ app.post("/forget", async (req, res) => {
             to: req.body.email,// req.body.email;
             subject: "IIITU library management password reset",
             text: "Your Pin is:",
-            html: `<h3>Your pin is:</h3><h1>${pinReturn}</h1>`
+            html: `<h3>Your pin is:</h3><h1>${req.session.pinReturn}</h1>`
         };
-        console.log(pinReturn);
+        console.log(req.session.pinReturn);
 
 
         transporter.sendMail(mailoption, function (err, info) {
@@ -349,7 +352,7 @@ app.post("/forget", async (req, res) => {
 
 app.post("/otp", async (req, res) => {
     let otpsubmit = req.body.otp;
-    if (otpsubmit === pinReturn) {
+    if (otpsubmit === req.session.pinReturn) {
         res.sendFile(__dirname + "/landing-page/resetpass.html")
     }
     else
@@ -372,11 +375,11 @@ app.post("/changepass", async (req, res) => {
 
     let data = await dbConnect();
     let result = await data.updateMany(
-        { email: forgetmail }, {
+        { email: req.session.forgetmail }, {
         $set: { password: req.body.pass1 }
     }
     );
-    console.log(forgetmail);
+    console.log(req.session.forgetmail);
     console.log(req.body.pass1);
     res.send(`<center style="background-color:grey; height:93rem;padding-top:20rem;font-size:5rem;"> <h1> Your password has been changed successfully!<hr><hr> <a href="/login">Go to Login page</a></h1> </center>`)
 })
@@ -389,7 +392,7 @@ app.post("/searchbook", async (req, res) => {
 
     if (responce1 != "") {
 
-        requestedbook = await responce1[0].name;
+        req.session.requestedbook = await responce1[0].name;
         console.log(responce1);
         app.set('view engine', 'ejs');
         res.render(__dirname + "/views/allocatebook.ejs", { responce1 });
@@ -402,6 +405,7 @@ app.post("/searchbook", async (req, res) => {
 });
 let status, numberofbooks;
 app.get("/allocatebook", async (req, res) => {
+    let logindata=req.session.logindata;
     let data = await dbConnect();
     if (checklogin == 1 && logindata[0].booknumbers < 10) {
 
@@ -411,71 +415,71 @@ app.get("/allocatebook", async (req, res) => {
         //////////////////////////////////////////
         if (logindata[0].book1 == "") {
             let result = await data.updateMany(
-                { email: logmail }, {
-                $set: { book1: requestedbook, returned1: datetime }
+                { email: req.session.logmail }, {
+                    $set: { book1: req.session.requestedbook, returned1: datetime }
             }
             );
         }
         else if (logindata[0].book2 == "") {
             let result = await data.updateMany(
-                { email: logmail }, {
-                $set: { book2: requestedbook, returned2: datetime }
+                { email: req.session.logmail }, {
+                    $set: { book2: req.session.requestedbook, returned2: datetime }
             }
             );
         }
         else if (logindata[0].book3 == "") {
             let result = await data.updateMany(
-                { email: logmail }, {
-                $set: { book3: requestedbook, returned3: datetime }
+                { email: req.session.logmail }, {
+                    $set: { book3: req.session.requestedbook, returned3: datetime }
             }
             );
         }
         else if (logindata[0].book4 == "") {
             let result = await data.updateMany(
-                { email: logmail }, {
-                $set: { book4: requestedbook, returned4: datetime }
+                { email: req.session.logmail }, {
+                    $set: { book4: req.session.requestedbook, returned4: datetime }
             }
             );
         }
         else if (logindata[0].book5 == "") {
             let result = await data.updateMany(
-                { email: logmail }, {
-                $set: { book5: requestedbook, returned5: datetime }
+                { email: req.session.logmail }, {
+                    $set: { book5: req.session.requestedbook, returned5: datetime }
             }
             );
         }
         else if (logindata[0].book6 == "") {
             let result = await data.updateMany(
-                { email: logmail }, {
-                $set: { book6: requestedbook, returned6: datetime }
+                { email: req.session.logmail }, {
+                    $set: { book6: req.session.requestedbook, returned6: datetime }
             }
             );
         }
         else if (logindata[0].book7 == "") {
             let result = await data.updateMany(
-                { email: logmail }, {
-                $set: { book7: requestedbook, returned7: datetime }
+                { email: req.session.logmail }, {
+                    $set: { book7: req.session.requestedbook, returned7: datetime }
             }
             );
         }
         else if (logindata[0].book8 == "") {
             let result = await data.updateMany(
-                { email: logmail }, {
-                $set: { book8: requestedbook, returned8: datetime }
+                { email: req.session.logmail }, {
+                    $set: { book8: req.session.requestedbook, returned8: datetime }
             }
             );
         }
         else if (logindata[0].book9 == "") {
             let result = await data.updateMany(
-                { email: logmail }, {
-                $set: { book9: requestedbook, returned9: datetime }
+                { email: req.session.logmail }, {
+                    $set: { book9: req.session.requestedbook, returned9: datetime }
             }
             );
         }
         else {
             let result = await data.updateMany(
-                { email: logmail }, {
-                $set: { book10: requestedbook, returned10: datetime }
+                { email: req.session.logmail }, {
+                    $set: { book10: req.session.requestedbook, returned10: datetime }
             }
             );
         }
@@ -485,12 +489,12 @@ app.get("/allocatebook", async (req, res) => {
         let db = result.db(database);
         let collection = db.collection('Books');
         let collection2 = db.collection('notes');
-        let responce1 = await collection.find({ name: requestedbook }).toArray();
-        let responce2 = await collection2.find({ name: username }).toArray();
+        let responce1 = await collection.find({ name: req.session.requestedbook }).toArray();
+        let responce2 = await collection2.find({ name: req.session.username }).toArray();
         // console.log(responce2);
-        numberofbooks = await logindata[0].booknumbers;
-        status = await responce1[0].status;
-        if (status >= 1) {
+        req.session.numberofbooks = await logindata[0].booknumbers;
+        req.session.status = await responce1[0].status;
+        if (req.session.status >= 1) {
             /////////////////////////////////////////////////////////////////////////////////////////////
             var nodemailer = require("nodemailer");
             var transporter = nodemailer.createTransport({
@@ -507,7 +511,7 @@ app.get("/allocatebook", async (req, res) => {
                 from: process.env.MAIL_FROM,
                 to: req.body.email,
                 subject: "IIITU library management:Return the book",
-                html: `<h3>This is the last day For you to return the book <h2 style="color: red;">${requestedbook}</h2> <h5>If You have returned the book then ignore it</h5>`,
+                html: `<h3>This is the last day For you to return the book <h2 style="color: red;">${req.session.requestedbook}</h2> <h5>If You have returned the book then ignore it</h5>`,
             };
             // console.log(pinReturn);
             setTimeout(() => {
@@ -527,14 +531,14 @@ app.get("/allocatebook", async (req, res) => {
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             let result1 = await collection.updateOne(
-                { name: requestedbook }, {
-                $set: { status: status - 1 }
+                { name: req.session.requestedbook }, {
+                    $set: { status: req.session.status - 1 }
             }
             );
-            let result2 = await collection2.updateOne({ name: username }, { $set: { booknumbers: numberofbooks + 1 } });
+            let result2 = await collection2.updateOne({ name: req.session.username }, { $set: { booknumbers: req.session.numberofbooks + 1 } });
             //////////////////////////////////////////////////////////////////
-            console.log(logmail);
-            console.log(requestedbook);
+            console.log(req.session.logmail);
+            console.log(req.session.requestedbook);
             res.render(__dirname + "/views/booksuccessfully.ejs");
         }
         else {
@@ -798,7 +802,7 @@ app.post("/returning", async (req, res) => {
 
 })
 app.get("/addbooks", async (req, res) => {
-    if (usermail == adminmail && userpass == adminpass && admincheck==1)
+    if (req.session.usermail == adminmail && req.session.userpass == adminpass && admincheck==1)
         res.render(__dirname + "/views/addbook.ejs");
     else {
         // res.send(`<center ><h2 style="font-size:3rem;">You have not authentication to access this page<br><a href="/">Go to Homepage</a></h2></center>`);
@@ -811,7 +815,8 @@ app.post("/addbook", async (req, res) => {
     let db = await result.db(database);
     let collection = await db.collection('Books');
     let responce1 = await collection.find({ name: req.body.name }).toArray();
-    newbookname = req.body.name;
+    req.session.newbookname = req.body.name;
+    newbookname =req.session.newbookname;
     if (responce1 == "") {
         let result = await collection.insertOne({
             name: req.body.name,
@@ -828,7 +833,7 @@ app.post("/addbook", async (req, res) => {
     }
 });
 app.get("/removebooks",async(req,res)=>{
-    if (usermail == adminmail && userpass == adminpass && admincheck==1)
+    if (req.session.usermail == adminmail && req.session.userpass == adminpass && admincheck==1)
         // res.render(__dirname + "/views/addbook.ejs");
         res.render(__dirname+"/views/removebook.ejs");
     else {
@@ -841,11 +846,13 @@ app.post("/removebook",async(req,res)=>{
     let data =await client.connect();
     let db = data.db("Students");
     let collection = db.collection('Books');
-    removebookid = req.body.id;
-    let responce1 = await collection.find({_id:removebookid}).toArray();
+    req.session.removebookid = req.body.id;
+    removebookid = req.session.removebookid;
+    let responce1 = await collection.find({ _id: req.session.removebookid}).toArray();
     if (responce1!="") {
-        removebookname = await responce1[0].name;
-        let result = await collection.deleteOne({_id:removebookid});
+        req.session.removebookname = await responce1[0].name;
+        removebookname = req.session.removebookname;
+        let result = await collection.deleteOne({ _id: req.session.removebookid});
         console.log(result);
         res.render(__dirname+"/views/removebooksuccess.ejs",{removebookname});
     }
@@ -861,7 +868,7 @@ app.get("/logout",(req,res)=>{
     // res.sendFile(__dirname+"/landing-page/login.html");
 });
 app.get("/seeaccount",(req,res)=>{
-    if (usermail == adminmail && userpass == adminpass && admincheck==1)
+    if (req.session.usermail == adminmail && req.session.userpass == adminpass && admincheck==1)
     res.render(__dirname+"/views/seeaccount.ejs");
         // res.render(__dirname + "/views/addbook.ejs");
     else {
